@@ -1,10 +1,17 @@
-
+pub mod memory;
 
 fn main() {
-    let mem:[i16;4] = [1,2,3,4];
-    // counters and registers are 12-bit addressable meaning they cant point to 4096 addresses
-    let index_register: i16 = 0;
-    let program_counter: i16 = 0;
+    let index_register: i16 = 0; // points to locations in memory
+    let program_counter: i16 = 0; // points to current instruction in memoru
+    let stack:Vec<i16> = Vec::new();
     
     println!("Hello, world!");
 }
+
+fn load_memory() {}
+
+fn fetch() {}
+
+fn decode() {}
+
+fn execute {}
