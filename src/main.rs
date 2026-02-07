@@ -1,11 +1,13 @@
-use crate::{instruction_loader::load_instructions, memory::Memory};
+use crate::chip_8::Chip8;
+use create::instruction_loader::load_rom;
 
-mod memory;
+
+mod chip_8;
 mod instruction_loader;
 
 fn main() {
-    let memory = Memory::new(); // loads default memory configuration
-    load_instructions();
+    let mut chip_8 = Chip8::new(); // loads default memory configuration
+    load_rom(chip_8);
     
     // Run main CPU loop 
     loop {
