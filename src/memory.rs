@@ -1,5 +1,5 @@
 // fonts used for rendering
-pub const FONT: [u16;80] = [
+pub const FONT: [u16; 80] = [
     0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
     0x20, 0x60, 0x20, 0x20, 0x70, // 1
     0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
@@ -15,16 +15,15 @@ pub const FONT: [u16;80] = [
     0xF0, 0x80, 0x80, 0x80, 0xF0, // C
     0xE0, 0x90, 0x90, 0x90, 0xE0, // D
     0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
-    0xF0, 0x80, 0xF0, 0x80, 0x80  // F 
+    0xF0, 0x80, 0xF0, 0x80, 0x80, // F
 ];
 
-pub struct Memory {  
+pub struct Memory {
     font_start_address: usize,
     memory: [u16; 4096],
     registers: [u8; 16],
     index_register: u16,
     program_counter: u16,
-    
 }
 
 impl Memory {
@@ -34,16 +33,16 @@ impl Memory {
             memory: [0; 4096],
             registers: [0; 16],
             index_register: 0,
-            program_counter: 0
+            program_counter: 0,
         };
-        
+
         memory.load_font_into_memory();
         memory
     }
-    
+
     fn load_font_into_memory(&mut self) {
         for (index, font) in FONT.iter().enumerate() {
-            self.memory[self.font_start_address + index] = *font; 
+            self.memory[self.font_start_address + index] = *font;
         }
     }
 }
